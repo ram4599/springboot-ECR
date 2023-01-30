@@ -5,12 +5,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/v1/docker")
+@RequestMapping("")
 public class DockerHelloWorld {
 
 	@GetMapping
 	public String getName() {
 		
-		return "Welcome to deployment in docker";
+		return ""Hello World!"";
 	}
 }
