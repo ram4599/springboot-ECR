@@ -12,7 +12,7 @@ pipeline{
 	 }
 	 stages {	   
 	    
-		   /* stage('Checkout Code from Git') {
+		    stage('Checkout Code from Git') {
                steps {
         git branch: 'main', url: 'https://github.com/ram4599/springboot-ECR.git'
                     }
@@ -41,14 +41,14 @@ pipeline{
 		     steps{
 			    sh 'docker image ls'
 				}
-			}*/
+			}
 		stage('Login to AWS ECR'){
 		     steps{ 
 			   // sh 'ls -lart'
 			    sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 613758335960.dkr.ecr.eu-west-1.amazonaws.com'
 				}
 			}
-		/*stage('Build image in ECR'){
+		stage('Build image in ECR'){
 		     steps{
 			   script{
 			     dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
@@ -62,6 +62,6 @@ pipeline{
 				sh "docker push ${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
 				}
 				}
-			}*/
+			}
 			}
 			}
