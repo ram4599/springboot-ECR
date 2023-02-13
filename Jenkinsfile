@@ -58,7 +58,7 @@ pipeline{
 		stage('Push the image'){
 		     steps{
 			    script{
-				sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${REPOSITORY_URI}:${IMAGE_TAG}"
+				sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} 613758335960.dkr.ecr.eu-west-1.amazonaws.com:${IMAGE_TAG}"
 				sh "docker push 613758335960.dkr.ecr.eu-west-1.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
 				}
 				}
