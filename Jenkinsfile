@@ -22,7 +22,7 @@ pipeline{
             steps {
                 // Run Maven on a Unix agent.
               
-                sh "mvn clean compile"
+                sh "mvn compile"
             }
         }
 		stage('deploy') { 
@@ -30,8 +30,7 @@ pipeline{
             steps {
                 sh "mvn package"
             }
-        }
-	 
+        } 
 	 
 	    stage('Checking docker version'){
 		     steps{
