@@ -15,7 +15,7 @@ pipeline{
 	    
 		    stage('Checkout Code from Git') {
                steps {
-        git branch: 'main', url: 'https://github.com/Ramopshub/springboot-hello.git'
+        git branch: 'main', url: 'https://github.com/ram4599/springboot-ECR.git'
                     }
                   }
 		stage('Compile and Clean') { 
