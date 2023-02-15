@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-     AWS_ACCOUNT_ID="613758335960"
+     AWS_ACCOUNT_ID="612467***"
 	 AWS_DEFAULT_REGION="eu-west-1"
 	 IMAGE_REPO_NAME="testrepo"
 	 IMAGE_TAG="v${env.BUILD_NUMBER}"
@@ -14,7 +14,7 @@ pipeline{
 	    
 		    stage('Checkout Code from Git') {
                steps {
-        git branch: 'main', url: 'https://github.com/ram4599/springboot-ECR.git'
+        git branch: 'main', url: 'https://github.com/<acc-id>/<repo-name>.git'
                     }
                   }
 		stage('Compile and Clean') { 
@@ -58,8 +58,8 @@ pipeline{
 		stage('Push the image'){
 		     steps{
 			    script{
-				sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} 613758335960.dkr.ecr.eu-west-1.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
-				sh "docker push 613758335960.dkr.ecr.eu-west-1.amazonaws.com/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+				sh "docker tag ${IMAGE_REPO_NAME}:${IMAGE_TAG} ${AWS_ACCOUNT_ID}/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
+				    sh "docker push ${AWS_ACCOUNT_ID}/${IMAGE_REPO_NAME}:${IMAGE_TAG}"
 				}
 				}
 			}
