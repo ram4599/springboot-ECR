@@ -45,10 +45,10 @@ pipeline{
 		stage('Login to AWS ECR'){
 		     steps{ 
 			   // sh 'ls -lart'
-			    sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 613758335960.dkr.ecr.eu-west-1.amazonaws.com'
+			    sh 'aws ecr get-login-password --region eu-west-1 | docker login --username AWS --password-stdin 612467***.dkr.ecr.eu-west-1.amazonaws.com'
 				}
 			}
-		stage('Build image in ECR'){
+		stage('Build image'){
 		     steps{
 			   script{
 			     dockerImage = docker.build "${IMAGE_REPO_NAME}:${IMAGE_TAG}"
